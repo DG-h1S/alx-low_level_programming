@@ -1,8 +1,3 @@
-/*
- * File: 7-print_last_digit.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
