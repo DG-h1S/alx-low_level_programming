@@ -1,8 +1,3 @@
-/*
- * File: 6-abs.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
