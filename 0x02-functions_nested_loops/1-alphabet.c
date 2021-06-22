@@ -1,8 +1,3 @@
-/*
- * File: 1-alphabet.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
