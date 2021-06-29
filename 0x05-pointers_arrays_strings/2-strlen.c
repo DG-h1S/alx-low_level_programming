@@ -1,21 +1,15 @@
 #include "holberton.h"
-
 /**
- * _strlen - Swaps integers wih pointers.
+ * _strlen - give the length of a string
+ * @s: the string
  *
- * @s: is a pointer to a char
- *
- * Return: Always 0.
+ * Return: the length of a string
  */
-
 int _strlen(char *s)
 {
-int i;
+  int i;
 
-while (*(s + i) != '\0')
-{
-i++;
-}
-
-return (i);
+  for (i = 0 ; s[i] != '\0' ; i++)
+    ;
+  return (i);
 }

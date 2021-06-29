@@ -1,21 +1,18 @@
 #include "holberton.h"
-
 /**
- * _puts - Swaps integers wih pointers.
+ * _puts - prints a string
+ * @str: the string
  *
- * @str: is a pointer to a char
- *
- * Return: Always 0.
+ * Return: the length of a string
  */
-
 void _puts(char *str)
 {
-int i;
+  int i = 0;
 
-while (*(str + i) != '\0')
-{
-_putchar(*(str + i));
-i++;
-}
-_putchar('\n');
+  while (str[i] != '\0')
+    {
+      _putchar(str[i]);
+      i++;
+    }
+  _putchar('\n');
 }
