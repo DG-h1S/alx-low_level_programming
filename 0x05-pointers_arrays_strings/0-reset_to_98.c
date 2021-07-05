@@ -1,14 +1,10 @@
-/*
- * File: 0-reset_to_98.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
- * reset_to_98 - Takes a pointer to an int and updates
- *               the value it points to to 98.
- * @n: The pointer to an int.
+ * reset_to_98 - sets value to 98
+ * @n: address of value
+ *
+ * Return: void
  */
 void reset_to_98(int *n)
 {

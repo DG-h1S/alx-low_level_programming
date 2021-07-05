@@ -1,18 +1,14 @@
-/*
- * File: 3-puts.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
- * _puts - Prints a string to stdout.
- * @str: The string to be printed.
+ * _puts - prints a string with newline
+ * @str: the string to print
+ *
+ * Return: void
  */
 void _puts(char *str)
 {
 	while (*str)
 		_putchar(*str++);
-
 	_putchar('\n');
 }

@@ -1,32 +1,24 @@
-/*
- * File: 7-leet.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
+#define LEETIN "aAeEoOtTlL"
+#define LEETOUT "4433007711"
+
 /**
- * leet - Encodes a string to 1337.
- * @str: The string to be encoded.
+ * leet - encodes a string into 1337
+ * @s: the string to encode
  *
- * Return: A pointer to the encoded string.
+ * Return: char pointer
  */
-char *leet(char *str)
+char *leet(char *s)
 {
-	int indx1 = 0, indx2;
-	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
+	char *ret = s, *leetin = LEETIN, *leetout = LEETOUT;
+	int i = 0;
 
-	while (str[indx1])
+	for (; *s; s++)
 	{
-		for (indx2 = 0; indx2 <= 7; indx2++)
-		{
-			if (str[indx1] == leet[indx2] ||
-			    str[indx1] - 32 == leet[indx2])
-				str[indx1] = indx2 + '0';
-		}
-
-		indx1++;
+		for (i = 0; leetin[i]; i++)
+			if (*s == leetin[i])
+				*s = leetout[i];
 	}
-
-	return (str);
+	return (ret);
 }

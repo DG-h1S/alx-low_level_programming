@@ -1,51 +1,27 @@
-/*
- * File: 8-rot13.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
-/**
- * rot13 - Encodes a string using rot13.
- * @str: The string to be encoded.
- *
- * Return: A pointer to the encoded string.
- */
-char *rot13(char *str)
-{
-	int indx1 = 0, indx2;
-	char alphabet[52] = {'A', 'B', 'C', 'D', 'E', 'F',
-			     'G', 'H', 'I', 'J', 'K', 'L',
-			     'M', 'N', 'O', 'P', 'Q', 'R',
-			     'S', 'T', 'U', 'V', 'W', 'X',
-			     'Y', 'Z', 'a', 'b', 'c', 'd',
-			     'e', 'f', 'g', 'h', 'i', 'j',
-			     'k', 'l', 'm', 'n', 'o', 'p',
-			     'q', 'r', 's', 't', 'u', 'v',
-			     'w', 'x', 'y', 'z'};
-	char rot13key[52] = {'N', 'O', 'P', 'Q', 'R', 'S',
-			     'T', 'U', 'V', 'W', 'X', 'Y',
-			     'Z', 'A', 'B', 'C', 'D', 'E',
-			     'F', 'G', 'H', 'I', 'J', 'K',
-			     'L', 'M', 'n', 'o', 'p', 'q',
-			     'r', 's', 't', 'u', 'v', 'w',
-			     'x', 'y', 'z', 'a', 'b', 'c',
-			     'd', 'e', 'f', 'g', 'h', 'i',
-			     'j', 'k', 'l', 'm'};
+#define ROT13IN  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#define ROT13OUT "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
 
-	while (str[indx1])
+/**
+ * rot13 - encodes a string in rot13
+ * @s: the string to encode
+ *
+ * Return: char pointer
+ */
+char *rot13(char *s)
+{
+	char *ret = s, *rot13in = ROT13IN, *rot13out = ROT13OUT;
+	int i = 0;
+
+	for (; *s; s++)
 	{
-		for (indx2 = 0; indx2 < 52; indx2++)
-		{
-			if (str[indx1] == alphabet[indx2])
+		for (i = 0; rot13in[i]; i++)
+			if (*s == rot13in[i])
 			{
-				str[indx1] = rot13key[indx2];
+				*s = rot13out[i];
 				break;
 			}
-		}
-
-		indx1++;
 	}
-
-	return (str);
+	return (ret);
 }
