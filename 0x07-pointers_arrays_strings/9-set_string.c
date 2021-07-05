@@ -1,14 +1,11 @@
-/*
- * File: 9-set_string.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
- * set_string - Sets the value of a pointer to a char.
- * @s: The pointer.
- * @to: The char.
+ * set_string - sets the value of a pointer to a char
+ * @s: pointer to pointer to a char
+ * @to: the address to match
+ *
+ * Return: void
  */
 void set_string(char **s, char *to)
 {
