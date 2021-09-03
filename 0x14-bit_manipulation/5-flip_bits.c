@@ -1,18 +1,22 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * flip_bits - returns hamming distance of two bit words
- * @n: the first bit word
- * @m: the second bit word
+ * flip_bits - Counts the number of bits needed to be
+ * flipped to get from one number to another.
+ * @n: The number.
+ * @m: The number to flip n to.
  *
- * Return: the hamming distance
+ * Return: The necessary number of bits to flip to get from n to m.
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int shift = (sizeof(n) * 8);
-	int dist = 0;
+	unsigned long int xor = n ^ m, bits = 0;
 
-	while (shift--)
-		dist += (n >> shift & 1) != (m >> shift & 1);
-	return (dist);
+	while (xor > 0)
+	{
+		bits += (xor & 1);
+		xor >>= 1;
+	}
+
+	return (bits);
 }

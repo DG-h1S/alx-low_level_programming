@@ -1,25 +1,16 @@
-#include "holberton.h"
+#include "main.h"
+#define INT_SIZE (sizeof(int) * 8)
 
 /**
- * print_binary - prints a number as binary string
- * @n: the number to print
+ * print_binary - print the binary representation of a positive integer
+ * @n: the number to be converted
  *
- * Return: void
+ * Return: binary representation of n
  */
 void print_binary(unsigned long int n)
 {
-	int bit = sizeof(n) * 8, printed = 0;
+	if (n > 1)
+		print_binary(n >> 1);
 
-	while (bit)
-	{
-		if (n & 1L << --bit)
-		{
-			_putchar('1');
-			printed++;
-		}
-		else if (printed)
-			_putchar('0');
-	}
-	if (!printed)
-		_putchar('0');
+	_putchar((n & 1) + '0');
 }
