@@ -27,16 +27,30 @@ int _strlen(char *s)
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t bytes = 0, len = _strlen(text_content);
+  register int _file, _write, text_len = 0;
 
-	if (!filename)
-		return (-1);
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (fd == -1)
-		return (-1);
-	if (len)
-		bytes = write(fd, text_content, len);
-	close(fd);
-	return (bytes == len ? 1 : -1);
+  if (!(filename))
+    {
+      return (-1);
+    }
+  _file = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
+  if (_file == -1)
+    {
+      return (-1);
+    }
+  if (text_content)
+    {
+      while (text_content[text_len])
+	{
+	  text_len++;
+	}
+      _write = write(_file, text_content, text_len);
+      if (_write == -1)
+	{
+	  return (-1);
+	}
+    }
+  close(_file);
+  return (1);
 }
+
